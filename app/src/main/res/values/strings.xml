@@ -12,6 +12,13 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="btt_first_fragment">Primer fragment</string>
+    <string name="btt_second_fragment">Segundo fragment</string>
+    <string name="btt_third_fragment">Tercer fragment</string>
+
+
+
+    <!-- Calculadora-->
     <string name="number_1" >Numero1</string>
     <string name="number_2" >Numero2</string>
     <string name="calculate_1" >Calcular</string>
