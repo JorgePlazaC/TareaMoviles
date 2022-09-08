@@ -22,6 +22,7 @@
     <string name="number_1" >Numero1</string>
     <string name="number_2" >Numero2</string>
     <string name="calculate_1" >Calcular</string>
+    <string name="respuesta" >Respuesta</string>
 
     <string name="sum" >Suma</string>
     <string name="substract" >Restar</string>

@@ -8,6 +8,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,7 +24,9 @@ public class FirstFragment extends Fragment {
 
     private FragmentFirstBinding binding;
 
-    private EditText txt_number1,txt_number2,txt_res;
+    private EditText txt_number1,txt_number2;
+
+    private TextView txt_res;
 
     private RadioButton radio_sum,radio_rest,radio_div,radio_mult;
 
@@ -40,7 +43,7 @@ public class FirstFragment extends Fragment {
         binding = FragmentFirstBinding.inflate(inflater, container, false);
         txt_number1 = (EditText) binding.txtNumber1;
         txt_number2 = (EditText) binding.txtNumber2;
-        txt_res = (EditText) binding.txtResultado;
+        txt_res = (TextView) binding.txtResultado;
         radio_sum = (RadioButton) binding.radioSum;
         radio_rest = (RadioButton) binding.radioSubstract;
         radio_div = (RadioButton) binding.radioDivide;
@@ -218,16 +221,16 @@ public class FirstFragment extends Fragment {
         String mult = "";
         String resultado = "";
         if(check_sum.isChecked()){
-            sum = "Suma = "+sum(true)+" ";
+            sum = "Suma = "+sum(true)+" "+"\n";
         }
         if(check_rest.isChecked()){
-            rest = "Resta = "+substract(true)+" ";
+            rest = "Resta = "+substract(true)+" "+"\n";
         }
         if(check_div.isChecked()){
-            div = "División = "+div(true)+" ";
+            div = "División = "+div(true)+" "+"\n";
         }
         if(check_mult.isChecked()) {
-            mult = "Multiplicación = "+multiply(true);
+            mult = "Multiplicación = "+multiply(true)+" "+"\n";
         }
         resultado = sum+rest+div+mult;
         txt_res.setText(resultado);
