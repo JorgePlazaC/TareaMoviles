@@ -22,6 +22,8 @@ import java.util.List;
 
 public class FirstFragment extends Fragment {
 
+    //Declaración de variables
+
     private FragmentFirstBinding binding;
 
     private EditText txt_number1,txt_number2;
@@ -41,15 +43,19 @@ public class FirstFragment extends Fragment {
     ) {
 
         binding = FragmentFirstBinding.inflate(inflater, container, false);
+
+        //Asignación de valores a las variables
+        //Texto
         txt_number1 = (EditText) binding.txtNumber1;
         txt_number2 = (EditText) binding.txtNumber2;
         txt_res = (TextView) binding.txtResultado;
+        //Radio
         radio_sum = (RadioButton) binding.radioSum;
         radio_rest = (RadioButton) binding.radioSubstract;
         radio_div = (RadioButton) binding.radioDivide;
         radio_mult = (RadioButton) binding.radioMultiply;
         radio_group = (RadioGroup) binding.radioGroup;
-
+        //CheckBox
         check_sum = (CheckBox) binding.checkBoxSum;
         check_rest = (CheckBox) binding.checkBoxRest;
         check_div = (CheckBox) binding.checkBoDiv;
@@ -62,6 +68,7 @@ public class FirstFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        //Botón que lleva al segundo fragment
         binding.buttonFirst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,8 +113,8 @@ public class FirstFragment extends Fragment {
             desmarcarCheckBox();
         });
 
+        //Botón que da la orden para realizar la operación matematica
         binding.btmCalcular.setOnClickListener((View v)->{
-
             if(check_sum.isChecked() || check_rest.isChecked() || check_div.isChecked() || check_mult.isChecked()){
                 if(txt_number1.getText().toString().equals("") || txt_number2.getText().toString().equals("")){
                     Toast.makeText(this.getContext(), "Ingrese valores", Toast.LENGTH_SHORT).show();
@@ -129,6 +136,8 @@ public class FirstFragment extends Fragment {
             }
         });
     }
+
+    //Metodos usados tras presionar el botón calcular
 
     public void showMessage(){
         Toast.makeText(this.getContext(), "No se ha seleccionado ninguna operacion", Toast.LENGTH_SHORT).show();
@@ -236,6 +245,7 @@ public class FirstFragment extends Fragment {
         txt_res.setText(resultado);
     }
 
+    //Metodo del sistema
     @Override
     public void onDestroyView() {
         super.onDestroyView();

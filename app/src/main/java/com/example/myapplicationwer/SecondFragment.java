@@ -18,6 +18,8 @@ import com.example.myapplicationwer.databinding.FragmentSecondBinding;
 
 public class SecondFragment extends Fragment {
 
+    //Declaración de variables
+
     private FragmentSecondBinding binding;
 
     private EditText txt_num1, txt_num2,txt_resp2;
@@ -32,12 +34,15 @@ public class SecondFragment extends Fragment {
 
         binding = FragmentSecondBinding.inflate(inflater, container, false);
 
+        //Asignación de valores a las variables
+        //Texto
         txt_num1 = (EditText) binding.txtNumber1;
         txt_num2 = (EditText) binding.txtNumber2;
         txt_resp2 = (EditText) binding.txtResp;
-
+        //Spinner
         spiOptions = (Spinner) binding.spinner;
 
+        //Configuración de spinner
         String[] operations = {
                 "Sumar","Restar","Multiplicar","Dividir",
         };
@@ -53,6 +58,7 @@ public class SecondFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        //Botón que lleva al primer fragment
         binding.buttonSecond.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,6 +67,7 @@ public class SecondFragment extends Fragment {
             }
         });
 
+        //Botón que lleva al tercer fragment
         binding.buttonThird.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,6 +76,7 @@ public class SecondFragment extends Fragment {
             }
         });
 
+        //Botón que da la orden para realizar la operación matematica
         binding.bttCalculate.setOnClickListener((View v) -> {
             String select = spiOptions.getSelectedItem().toString();
             switch (select){
@@ -91,6 +99,7 @@ public class SecondFragment extends Fragment {
         });
     }
 
+    //Metodos usados tras presionar el botón calcular
 
     public void showMessage(){
         Toast.makeText(this.getContext(), "No se ha seleccionado ninguna operacion", Toast.LENGTH_SHORT).show();
@@ -154,6 +163,7 @@ public class SecondFragment extends Fragment {
         return respuesta;
     }
 
+    //Metodo del sistema
     @Override
     public void onDestroyView() {
         super.onDestroyView();
