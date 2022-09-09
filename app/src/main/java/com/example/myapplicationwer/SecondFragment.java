@@ -26,6 +26,8 @@ public class SecondFragment extends Fragment {
 
     private Spinner spiOptions;
 
+    private OperacionAdapter operacionAdapter;
+
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
@@ -42,14 +44,23 @@ public class SecondFragment extends Fragment {
         //Spinner
         spiOptions = (Spinner) binding.spinner;
 
+
         //Configuración de spinner
+
         String[] operations = {
                 "Sumar","Restar","Multiplicar","Dividir",
         };
+        int imgOperaciones[] = {R.drawable.suma, R.drawable.resta, R.drawable.multiplicacion, R.drawable.division};
 
-        ArrayAdapter<String>adapter= new ArrayAdapter<>(this.getContext(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,operations);
+        //Adapter
 
-        spiOptions.setAdapter(adapter);
+        operacionAdapter = new OperacionAdapter(getActivity().getApplicationContext(),imgOperaciones,operations);
+
+
+        //ArrayAdapter<String>adapter= new ArrayAdapter<>(this.getContext(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,operations);
+
+
+        spiOptions.setAdapter(operacionAdapter);
 
         return binding.getRoot();
 
@@ -78,7 +89,7 @@ public class SecondFragment extends Fragment {
 
         //Botón que da la orden para realizar la operación matematica
         binding.bttCalculate.setOnClickListener((View v) -> {
-            String select = spiOptions.getSelectedItem().toString();
+            String select = operacionAdapter.nombreOperaciones[Integer.parseInt(spiOptions.getSelectedItem().toString())];
             switch (select){
                 case "Sumar":
                     sum();
